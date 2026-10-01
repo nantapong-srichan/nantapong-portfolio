@@ -11,9 +11,9 @@ export interface Plan {
 }
 
 export const PLANS: Plan[] = [
-  { id: "basic", name: "Basic", monthly: 990, rank: 1, tagline: "ฟิตเนสเต็มรูปแบบ เริ่มต้นง่ายๆ", perks: ["Gym floor 6:00-22:00", "Standard classes", "Locker room"] },
-  { id: "plus", name: "Plus", monthly: 1590, rank: 2, tagline: "คลาสพรีเมียมไม่อั้น", perks: ["Everything in Basic", "Premium classes (HIIT, Boxing)", "2 guest passes / month"] },
-  { id: "elite", name: "Elite", monthly: 2490, rank: 3, tagline: "ดูแลครบ พร้อมเทรนเนอร์", perks: ["Everything in Plus", "24/7 access", "1 PT session / month", "Sauna & recovery zone"] },
+  { id: "basic", name: "Basic", monthly: 990, rank: 1, tagline: "ฟิตเนสเต็มรูปแบบ เริ่มต้นง่ายๆ", perks: ["ฟิตเนสเปิด 6:00-22:00 น.", "คลาสมาตรฐาน", "ห้องล็อกเกอร์"] },
+  { id: "plus", name: "Plus", monthly: 1590, rank: 2, tagline: "คลาสพรีเมียมไม่อั้น", perks: ["ครบทุกอย่างใน Basic", "คลาสพรีเมียม (HIIT, มวย)", "บัตรผู้เยี่ยมชม 2 ใบ/เดือน"] },
+  { id: "elite", name: "Elite", monthly: 2490, rank: 3, tagline: "ดูแลครบ พร้อมเทรนเนอร์", perks: ["ครบทุกอย่างใน Plus", "เข้าใช้ได้ 24 ชม.", "เทรนเนอร์ส่วนตัว 1 ครั้ง/เดือน", "ซาวน่าและโซนฟื้นฟูร่างกาย"] },
 ];
 
 export const YEARLY_DISCOUNT = 0.2;
@@ -22,7 +22,7 @@ export function priceFor(plan: Plan, billing: Billing): number {
   return billing === "monthly" ? plan.monthly : Math.round(plan.monthly * 12 * (1 - YEARLY_DISCOUNT));
 }
 
-export const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] as const;
+export const DAYS = ["จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส.", "อา."] as const;
 
 export interface GymClass {
   id: string;
@@ -30,21 +30,22 @@ export interface GymClass {
   time: string;
   name: string;
   coach: string;
-  emoji: string;
+  image: string;
   capacity: number;
-  booked: number;
+  /** Seats already taken by other members (demo baseline). */
+  baseBooked: number;
   minPlan: PlanId;
 }
 
 export const CLASSES: GymClass[] = [
-  { id: "c1", day: "Mon", time: "07:00", name: "Morning Yoga", coach: "Coach Mai", emoji: "🧘", capacity: 20, booked: 14, minPlan: "basic" },
-  { id: "c2", day: "Mon", time: "18:30", name: "HIIT Burn", coach: "Coach Tan", emoji: "🔥", capacity: 16, booked: 15, minPlan: "plus" },
-  { id: "c3", day: "Tue", time: "12:15", name: "Core Express", coach: "Coach Ploy", emoji: "💪", capacity: 18, booked: 9, minPlan: "basic" },
-  { id: "c4", day: "Tue", time: "19:00", name: "Boxing Fundamentals", coach: "Coach Beam", emoji: "🥊", capacity: 12, booked: 12, minPlan: "plus" },
-  { id: "c5", day: "Wed", time: "07:00", name: "Spin Ride", coach: "Coach Nok", emoji: "🚴", capacity: 24, booked: 18, minPlan: "basic" },
-  { id: "c6", day: "Wed", time: "19:30", name: "Strength Lab", coach: "Coach Tan", emoji: "🏋️", capacity: 14, booked: 7, minPlan: "plus" },
-  { id: "c7", day: "Thu", time: "18:00", name: "Zumba Night", coach: "Coach Ploy", emoji: "💃", capacity: 30, booked: 22, minPlan: "basic" },
-  { id: "c8", day: "Fri", time: "17:30", name: "Elite Performance", coach: "Coach Beam", emoji: "⚡", capacity: 8, booked: 5, minPlan: "elite" },
-  { id: "c9", day: "Sat", time: "09:00", name: "Boot Camp", coach: "Coach Tan", emoji: "🪖", capacity: 20, booked: 19, minPlan: "plus" },
-  { id: "c10", day: "Sun", time: "10:00", name: "Stretch & Restore", coach: "Coach Mai", emoji: "🌿", capacity: 20, booked: 6, minPlan: "basic" },
+  { id: "c1", day: "จ.", time: "07:00", name: "โยคะยามเช้า", coach: "โค้ชไหม", image: "yoga", capacity: 20, baseBooked: 14, minPlan: "basic" },
+  { id: "c2", day: "จ.", time: "18:30", name: "HIIT เผาผลาญ", coach: "โค้ชตาล", image: "hiit", capacity: 16, baseBooked: 15, minPlan: "plus" },
+  { id: "c3", day: "อ.", time: "12:15", name: "คอร์เอ็กซ์เพรส", coach: "โค้ชพลอย", image: "core", capacity: 18, baseBooked: 9, minPlan: "basic" },
+  { id: "c4", day: "อ.", time: "19:00", name: "มวยพื้นฐาน", coach: "โค้ชบีม", image: "trainer-beam", capacity: 12, baseBooked: 12, minPlan: "plus" },
+  { id: "c5", day: "พ.", time: "07:00", name: "สปินไบค์", coach: "โค้ชนก", image: "cardio", capacity: 24, baseBooked: 18, minPlan: "basic" },
+  { id: "c6", day: "พ.", time: "19:30", name: "สร้างความแข็งแรง", coach: "โค้ชตาล", image: "weights", capacity: 14, baseBooked: 7, minPlan: "plus" },
+  { id: "c7", day: "พฤ.", time: "18:00", name: "ซุมบ้าไนท์", coach: "โค้ชพลอย", image: "class", capacity: 30, baseBooked: 22, minPlan: "basic" },
+  { id: "c8", day: "ศ.", time: "17:30", name: "Elite สมรรถภาพสูง", coach: "โค้ชบีม", image: "elite", capacity: 8, baseBooked: 5, minPlan: "elite" },
+  { id: "c9", day: "ส.", time: "09:00", name: "บูตแคมป์", coach: "โค้ชตาล", image: "bootcamp", capacity: 20, baseBooked: 19, minPlan: "plus" },
+  { id: "c10", day: "อา.", time: "10:00", name: "ยืดเหยียดและฟื้นฟู", coach: "โค้ชไหม", image: "yoga", capacity: 20, baseBooked: 6, minPlan: "basic" },
 ];

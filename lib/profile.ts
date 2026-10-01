@@ -1,49 +1,49 @@
 // Fill in the TODO values before publishing.
 export const profile = {
   name: "Nantapong Srichan",
-  headline: "Full-Stack Developer (Next.js · TypeScript · Supabase)",
-  tagline: "I build and ship production web apps with payments & auth. Open to freelance projects.",
+  headline: "นักพัฒนาเว็บ Full-⁠Stack (Next.js · TypeScript · Supabase)",
+  tagline: "ผมสร้างและส่งมอบเว็บแอปที่ใช้งานจริง พร้อมระบบชำระเงินและการยืนยันตัวตน รับงานฟรีแลนซ์",
   email: "nantaphongsrican@gmail.com", // TODO: work email
   github: "https://github.com/nantapong-srichan",
   linkedin: "", // TODO: LinkedIn URL
   platformUrl: "", // TODO: live URL of your exam-prep platform
-  platformName: "Exam-Prep Platform", // TODO: real platform name
+  platformName: "แพลตฟอร์มติวสอบ", // TODO: real platform name
   about:
-    "I'm a full-stack developer from Thailand who builds complete web products, from database design to payments to deployment.",
+    "ผมเป็นนักพัฒนา Full-Stack ชาวไทย สร้างผลิตภัณฑ์เว็บครบวงจร ตั้งแต่ออกแบบฐานข้อมูล ระบบชำระเงิน ไปจนถึงการ deploy",
   proof: [
-    "Subscription and one-time purchases, with Stripe and PromptPay QR payments",
-    "Phone OTP login with Twilio Verify, plus a custom SMS provider through a Supabase hook",
-    "A question bank and timed mock exams with automatic scoring and result breakdowns",
-    "Real-time PvP quiz battles",
+    "ระบบสมัครสมาชิกและซื้อแบบครั้งเดียว ชำระผ่าน Stripe และ QR พร้อมเพย์",
+    "เข้าสู่ระบบด้วย OTP ทางโทรศัพท์ผ่าน Twilio Verify พร้อมผู้ให้บริการ SMS ที่กำหนดเองผ่าน Supabase hook",
+    "คลังข้อสอบและข้อสอบจำลองแบบจับเวลา ตรวจคะแนนอัตโนมัติและแสดงผลวิเคราะห์รายส่วน",
+    "ระบบแข่งตอบคำถามแบบ PvP เรียลไทม์",
   ],
   services: [
-    "MVPs and SaaS products (Next.js, React, Supabase/PostgreSQL)",
-    "Payment integration (Stripe, local payment methods)",
-    "Auth, user roles and admin dashboards",
-    "Websites and ordering/booking systems for small businesses",
+    "MVP และผลิตภัณฑ์ SaaS (Next.js, React, Supabase/PostgreSQL)",
+    "ระบบชำระเงิน (Stripe และช่องทางชำระเงินในประเทศ)",
+    "ระบบล็อกอิน สิทธิ์ผู้ใช้ และแดชบอร์ดผู้ดูแล",
+    "เว็บไซต์และระบบสั่งซื้อ/จองสำหรับธุรกิจขนาดเล็ก",
   ],
   experience: [
     {
-      role: "Founder & Full-Stack Developer",
-      org: "Exam-Prep Platform", // TODO
-      period: "[Month Year] – Present", // TODO
+      role: "ผู้ก่อตั้งและนักพัฒนา Full-Stack",
+      org: "แพลตฟอร์มติวสอบ", // TODO
+      period: "[เดือน ปี] – ปัจจุบัน", // TODO
       points: [
-        "Designed and built a production exam-prep SaaS end to end with Next.js, TypeScript and Supabase (PostgreSQL)",
-        "Integrated Stripe with PromptPay QR and webhook-driven access control for subscriptions and one-time packs",
-        "Implemented phone OTP authentication and SMS broadcasting, then cut SMS costs by moving to a local provider through a Supabase hook",
-        "Built timed mock exams, a question bank, product entitlements and real-time PvP quiz battles",
+        "ออกแบบและพัฒนา SaaS ติวสอบที่ใช้งานจริงครบวงจรด้วย Next.js, TypeScript และ Supabase (PostgreSQL)",
+        "เชื่อมต่อ Stripe กับ QR พร้อมเพย์ และควบคุมสิทธิ์ด้วย webhook สำหรับสมาชิกรายเดือนและแพ็กเกจซื้อครั้งเดียว",
+        "พัฒนาระบบยืนยันตัวตนด้วย OTP และการส่ง SMS แล้วลดต้นทุน SMS ด้วยการย้ายไปใช้ผู้ให้บริการในประเทศผ่าน Supabase hook",
+        "สร้างข้อสอบจำลองจับเวลา คลังข้อสอบ ระบบสิทธิ์สินค้า และการแข่งตอบคำถาม PvP เรียลไทม์",
       ],
     },
     {
-      role: "Full-Stack Developer",
-      org: "[Company]", // TODO
-      period: "[Month Year] – [Month Year] (4 months)", // TODO
+      role: "นักพัฒนา Full-Stack",
+      org: "[ชื่อบริษัท]", // TODO
+      period: "[เดือน ปี] – [เดือน ปี] (4 เดือน)", // TODO
       points: [
-        "Developed features across frontend and backend in a Scrum team (sprint planning, daily stand-ups, code review)",
+        "พัฒนาฟีเจอร์ทั้งฝั่ง frontend และ backend ในทีม Scrum (วางแผนสปรินต์ เดลี่สแตนด์อัป โค้ดรีวิว)",
       ],
     },
   ],
-  education: "Khon Kaen University · B.Sc. Computer Science",
+  education: "มหาวิทยาลัยขอนแก่น · วท.บ. วิทยาการคอมพิวเตอร์",
   skills: [
     "Next.js", "TypeScript", "Supabase", "React", "PostgreSQL", "Stripe",
     "Node.js", "Tailwind CSS", "REST APIs", "Scrum",
