@@ -83,37 +83,20 @@ export default function Home() {
           รับงานฟรีแลนซ์ · เวลาประเทศไทย (GMT+7)
         </p>
         <h1 className="mt-6 max-w-4xl text-[2rem] font-bold leading-[1.25] tracking-tight sm:text-5xl sm:leading-[1.2]">{profile.headline}</h1>
+        <p className="mt-3 flex flex-wrap items-center gap-y-1 text-lg font-semibold text-stone-500 sm:text-2xl" aria-label={profile.headlineStack.join(", ")}>
+          {profile.headlineStack.map((s, i) => (
+            <span key={s} className="whitespace-nowrap">
+              {s}
+              {i < profile.headlineStack.length - 1 && <span aria-hidden="true" className="px-2 text-stone-300">·</span>}
+            </span>
+          ))}
+        </p>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-stone-600 sm:text-lg">{profile.tagline}</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <a href="#work" className={btnPrimary}>ดูผลงาน <Arrow /></a>
           <a href={`mailto:${profile.email}`} className={btnSecondary}>ส่งอีเมลหา</a>
         </div>
-        <ul className="mt-10 flex flex-wrap gap-2" aria-label="ทักษะ">
-          {profile.skills.map((s) => (
-            <li key={s} className="rounded-md border border-stone-200 bg-white px-3 py-1 text-xs font-medium text-stone-700">{s}</li>
-          ))}
-        </ul>
       </header>
-
-      <Section id="featured" eyebrow="ผลงานเด่น" title="แพลตฟอร์มที่ใช้งานจริง">
-        <div className="grid gap-8 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm sm:p-8 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <h3 className="text-xl font-semibold">{profile.platformName}</h3>
-            <p className="mt-2 leading-relaxed text-stone-600">ออกแบบ พัฒนา และดูแลเองทั้งหมดคนเดียว มีผู้ใช้จริงที่จ่ายเงินใช้งาน</p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-              <Link href="/case-study" className={`group ${btnPrimary}`}>อ่านกรณีศึกษา <Arrow /></Link>
-              {profile.platformUrl && (
-                <a href={profile.platformUrl} className={btnSecondary}>เข้าชมเว็บไซต์จริง ↗</a>
-              )}
-            </div>
-          </div>
-          <ul className="space-y-3 lg:col-span-3">
-            {profile.proof.map((p) => (
-              <li key={p} className="flex gap-3 text-[15px] leading-relaxed text-stone-700"><Check />{p}</li>
-            ))}
-          </ul>
-        </div>
-      </Section>
 
       <Section
         id="work"
@@ -234,6 +217,21 @@ export default function Home() {
       </Section>
 
       <Section id="about" eyebrow="เกี่ยวกับ" title="เกี่ยวกับผม" intro={profile.about}>
+        <h3 className="mb-4 font-semibold">ทักษะ</h3>
+        <dl className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {profile.skillGroups.map((g) => (
+            <div key={g.label} className="rounded-xl border border-stone-200 bg-white p-4 shadow-sm">
+              <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-emerald-800">{g.label}</dt>
+              <dd className="mt-3">
+                <ul className="flex flex-wrap gap-1.5">
+                  {g.items.map((s) => (
+                    <li key={s} className="rounded-md bg-stone-100 px-2 py-0.5 text-sm text-stone-700">{s}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          ))}
+        </dl>
         <h3 className="mb-4 font-semibold">สิ่งที่ผมสร้างให้คุณได้</h3>
         <ul className="grid gap-4 sm:grid-cols-2">
           {profile.services.map((s) => (

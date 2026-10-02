@@ -46,8 +46,7 @@ npm run dev
 
 ## ที่ต้องกรอกก่อนเผยแพร่
 
-- `lib/profile.ts`: อีเมลทำงาน, LinkedIn, ชื่อและ URL แพลตฟอร์มจริง, วันที่ทำงาน, ชื่อบริษัท
-- `app/case-study/page.tsx`: ตัวเลขจริงและภาพหน้าจอ 3-4 ภาพ
+- `lib/profile.ts`: LinkedIn
 - PromptPay ID ในเดโมร้านเสื้อผ้าเป็นเลขตัวอย่าง (0800000000)
 
 ## การ deploy

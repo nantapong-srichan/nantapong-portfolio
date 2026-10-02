@@ -1,51 +1,58 @@
 // Fill in the TODO values before publishing.
 export const profile = {
   name: "Nantapong Srichan",
-  headline: "นักพัฒนาเว็บ Full-⁠Stack (Next.js · TypeScript · Supabase)",
+  headline: "นักพัฒนาเว็บ Full-Stack",
+  headlineStack: ["Next.js", "Node.js", "TypeScript", "SQL & NoSQL"],
   tagline: "ผมสร้างและส่งมอบเว็บแอปที่ใช้งานจริง พร้อมระบบชำระเงินและการยืนยันตัวตน รับงานฟรีแลนซ์",
-  email: "nantaphongsrican@gmail.com", // TODO: work email
+  email: "nantapongsrichan@gmail.com",
   github: "https://github.com/nantapong-srichan",
   linkedin: "", // TODO: LinkedIn URL
-  platformUrl: "", // TODO: live URL of your exam-prep platform
-  platformName: "แพลตฟอร์มติวสอบ", // TODO: real platform name
   about:
     "ผมเป็นนักพัฒนา Full-Stack ชาวไทย สร้างผลิตภัณฑ์เว็บครบวงจร ตั้งแต่ออกแบบฐานข้อมูล ระบบชำระเงิน ไปจนถึงการ deploy",
-  proof: [
-    "ระบบสมัครสมาชิกและซื้อแบบครั้งเดียว ชำระผ่าน Stripe และ QR พร้อมเพย์",
-    "เข้าสู่ระบบด้วย OTP ทางโทรศัพท์ผ่าน Twilio Verify พร้อมผู้ให้บริการ SMS ที่กำหนดเองผ่าน Supabase hook",
-    "คลังข้อสอบและข้อสอบจำลองแบบจับเวลา ตรวจคะแนนอัตโนมัติและแสดงผลวิเคราะห์รายส่วน",
-    "ระบบแข่งตอบคำถามแบบ PvP เรียลไทม์",
-  ],
   services: [
-    "MVP และผลิตภัณฑ์ SaaS (Next.js, React, Supabase/PostgreSQL)",
-    "ระบบชำระเงิน (Stripe และช่องทางชำระเงินในประเทศ)",
+    "MVP และผลิตภัณฑ์ SaaS (Next.js, Node.js, ฐานข้อมูล SQL และ NoSQL)",
+    "ระบบชำระเงิน (QR พร้อมเพย์ ตรวจสลิปอัตโนมัติ และเกตเวย์ชำระเงิน)",
     "ระบบล็อกอิน สิทธิ์ผู้ใช้ และแดชบอร์ดผู้ดูแล",
     "เว็บไซต์และระบบสั่งซื้อ/จองสำหรับธุรกิจขนาดเล็ก",
   ],
+  skillGroups: [
+    { label: "Frontend", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
+    { label: "Backend", items: ["Node.js", "Spring Boot (Java)", "Go", "REST APIs"] },
+    { label: "Database", items: ["PostgreSQL", "MySQL", "MongoDB", "Supabase", "Firebase"] },
+    { label: "Tools", items: ["Git", "Linux", "Vercel", "Scrum"] },
+  ],
   experience: [
     {
-      role: "ผู้ก่อตั้งและนักพัฒนา Full-Stack",
-      org: "แพลตฟอร์มติวสอบ", // TODO
-      period: "[เดือน ปี] – ปัจจุบัน", // TODO
+      role: "นักพัฒนา Full-Stack",
+      org: "JurisLab",
+      period: "มิ.ย. 2569 – ปัจจุบัน",
       points: [
-        "ออกแบบและพัฒนา SaaS ติวสอบที่ใช้งานจริงครบวงจรด้วย Next.js, TypeScript และ Supabase (PostgreSQL)",
-        "เชื่อมต่อ Stripe กับ QR พร้อมเพย์ และควบคุมสิทธิ์ด้วย webhook สำหรับสมาชิกรายเดือนและแพ็กเกจซื้อครั้งเดียว",
-        "พัฒนาระบบยืนยันตัวตนด้วย OTP และการส่ง SMS แล้วลดต้นทุน SMS ด้วยการย้ายไปใช้ผู้ให้บริการในประเทศผ่าน Supabase hook",
-        "สร้างข้อสอบจำลองจับเวลา คลังข้อสอบ ระบบสิทธิ์สินค้า และการแข่งตอบคำถาม PvP เรียลไทม์",
+        "พัฒนาแพลตฟอร์มเว็บที่ใช้งานจริงและมีลูกค้าชำระเงินใช้บริการ ทั้งฝั่ง frontend และ backend ด้วย Next.js, TypeScript และ PostgreSQL",
+        "พัฒนาระบบยืนยันตัวตนด้วย OTP ระบบชำระเงิน และการควบคุมสิทธิ์ผู้ใช้",
+        "สร้างฟีเจอร์ที่ใช้ AI (LLM) และแดชบอร์ดผู้ดูแลสำหรับจัดการเนื้อหา",
+        "ทำงานแบบ Agile: วางแผนสปรินต์ โค้ดรีวิว เขียนเทสต์ และ deploy ขึ้น production",
       ],
     },
     {
-      role: "นักพัฒนา Full-Stack",
-      org: "[ชื่อบริษัท]", // TODO
-      period: "[เดือน ปี] – [เดือน ปี] (4 เดือน)", // TODO
+      role: "ผู้ช่วยสอน วิชาระบบปฏิบัติการ (Operating Systems)",
+      org: "วิทยาลัยการคอมพิวเตอร์ มหาวิทยาลัยขอนแก่น",
+      period: "มิ.ย. – ก.ย. 2568",
       points: [
-        "พัฒนาฟีเจอร์ทั้งฝั่ง frontend และ backend ในทีม Scrum (วางแผนสปรินต์ เดลี่สแตนด์อัป โค้ดรีวิว)",
+        "สอนแล็บการใช้งาน Linux command line: จัดการไฟล์ สิทธิ์ไฟล์ pipe/redirection และ shell script เบื้องต้น",
+        "แนะนำการเขียนภาษาซี: pointer การจองหน่วยความจำ คอมไพล์ด้วย gcc/Makefile และดีบักด้วย gdb",
+        "อธิบายแนวคิดระบบปฏิบัติการผ่านแล็บ: process (fork/exec/wait) thread และ synchronization การจัดตารางซีพียู และการจัดการหน่วยความจำ",
+        "ตรวจงาน ให้คำแนะนำ และช่วยนักศึกษาแก้บั๊กในงานแล็บ",
+      ],
+    },
+    {
+      role: "นักศึกษาฝึกงาน นักพัฒนาซอฟต์แวร์",
+      org: "สำนักเทคโนโลยีดิจิทัล มหาวิทยาลัยขอนแก่น",
+      period: "เม.ย. – มิ.ย. 2567",
+      points: [
+        "ร่วมพัฒนาระบบจัดการการประชุมสำหรับบุคลากรของมหาวิทยาลัย",
+        "ทำงานร่วมกับทีมพัฒนาและใช้เครื่องมือมาตรฐานในการจัดการเวอร์ชันและการทำงานเป็นทีม",
       ],
     },
   ],
-  education: "มหาวิทยาลัยขอนแก่น · วท.บ. วิทยาการคอมพิวเตอร์",
-  skills: [
-    "Next.js", "TypeScript", "Supabase", "React", "PostgreSQL", "Stripe",
-    "Node.js", "Tailwind CSS", "REST APIs", "Scrum",
-  ],
+  education: "มหาวิทยาลัยขอนแก่น · วท.บ. วิทยาการคอมพิวเตอร์ (2565–2569)",
 };
