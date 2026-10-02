@@ -210,10 +210,6 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <p className="mt-5 max-w-3xl rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-relaxed text-amber-950">
-          <span className="font-semibold">หมายเหตุ โหมดทดสอบ (sandbox): </span>
-          ตอนนี้เดโมยังไม่มีบริการส่งแจ้งเงินเข้าจริง จึงมีปุ่มจำลอง webhook ที่เซิร์ฟเวอร์เซ็นลายเซ็นให้ และสลิปรับภาพใดก็ได้ เพราะยังไม่ได้ตั้งค่า API key ของ Thunder และ ThaiBulkSMS เมื่อใส่ key ใน environment ระบบจะเรียกบริการจริง
-        </p>
       </Section>
 
       <Section id="about" eyebrow="เกี่ยวกับ" title="เกี่ยวกับผม" intro={profile.about}>
