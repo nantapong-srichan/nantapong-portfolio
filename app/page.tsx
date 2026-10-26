@@ -34,20 +34,8 @@ const Check = () => (
   </svg>
 );
 
-const Steps = ({ items }: { items: string[] }) => (
-  <ol className="mt-4 space-y-3 text-[15px] leading-relaxed text-stone-700">
-    {items.map((t, i) => (
-      <li key={t} className="flex gap-3">
-        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-stone-900 text-xs font-semibold text-white">{i + 1}</span>
-        <span>{t}</span>
-      </li>
-    ))}
-  </ol>
-);
-
 const navLinks = [
   ["#work", "ผลงาน"],
-  ["#payments", "ชำระเงิน"],
   ["#about", "เกี่ยวกับ"],
   ["#experience", "ประสบการณ์"],
   ["#contact", "ติดต่อ"],
@@ -117,7 +105,8 @@ export default function Home() {
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="text-xl font-bold tracking-tight">{project.name}</h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-stone-600">{project.description}</p>
-                <ul className="mt-5 flex flex-wrap gap-1.5">
+                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.12em] text-stone-500">Tech stack</p>
+                <ul className="mt-2 flex flex-wrap gap-1.5">
                   {project.stack.map((item) => (
                     <li key={item} className="rounded-md bg-stone-100 px-2 py-1 text-xs text-stone-700">{item}</li>
                   ))}
@@ -130,46 +119,6 @@ export default function Home() {
           ))}
         </div>
         <p className="mt-6 text-sm text-stone-500">ดู repository ทั้งหมดได้ที่ <a href={profile.github} target="_blank" rel="noreferrer" className="font-semibold text-stone-800 underline underline-offset-4">GitHub profile</a></p>
-      </Section>
-
-      <Section
-        id="payments"
-        eyebrow="ความถนัดด้านระบบ"
-        title="ระบบชำระเงินทำงานอย่างไร"
-        intro="ส่วนนี้เป็นแนวทางทางเทคนิคที่ผมถนัดและตัวอย่าง sandbox ภายในโปรเจกต์นี้ ไม่ใช่การอ้างว่าเป็นระบบที่ใช้งานอยู่กับลูกค้าจริง"
-      >
-        <div className="grid gap-5 lg:grid-cols-2">
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-            <p className="text-xs font-semibold text-emerald-800">แบบที่ 1</p>
-            <h3 className="mt-1 text-lg font-semibold">QR PromptPay ตรวจรับเงินอัตโนมัติ (ไม่ต้องแนบสลิป)</h3>
-            <Steps items={["สร้าง QR PromptPay ต่อออเดอร์ ยอดไม่ซ้ำกัน (บวกเศษสตางค์) พร้อมเวลาหมดอายุ", "ลูกค้าสแกนจ่ายเข้าบัญชีร้านโดยตรง (บริษัทหรือบุคคล)", "ธนาคารหรือผู้ให้บริการส่ง webhook แจ้งเงินเข้า ระบบตรวจลายเซ็นและกันส่งซ้ำ", "เทียบยอดกับออเดอร์ ปิดออเดอร์เองภายในไม่กี่วินาที เงินที่จับคู่ไม่ได้เข้าคิวให้เจ้าของร้านตรวจ"]} />
-            <p className="mt-4 border-t border-stone-100 pt-3 text-sm text-stone-600">ใช้ในเดโม Linen &amp; Co. (ร้านเสื้อผ้า)</p>
-          </div>
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-            <p className="text-xs font-semibold text-emerald-800">แบบที่ 2</p>
-            <h3 className="mt-1 text-lg font-semibold">แนบสลิป ตรวจผ่าน Thunder API</h3>
-            <Steps items={["ลูกค้าโอนเงินเข้าบัญชีร้านแล้วแนบสลิปในหน้าเว็บ", "ส่งรูปสลิปไปตรวจที่ Thunder API", "เซิร์ฟเวอร์เทียบยอดจริง บัญชีผู้รับ และกันสลิปซ้ำ", "อัปเดตสถานะเป็น 'ชำระแล้ว' อัตโนมัติ"]} />
-            <p className="mt-4 border-t border-stone-100 pt-3 text-sm text-stone-600">ใช้ในเดโมคาเฟ่ ร้านทำมือ จองคิว ฟิตเนส และใบแจ้งหนี้ (เป็นตัวสำรองในร้านเสื้อผ้า)</p>
-          </div>
-        </div>
-        <div className="mt-5 grid gap-5 md:grid-cols-2">
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-[15px] text-emerald-950">
-            <h3 className="text-base font-semibold">โอนตรง + ตรวจสลิปอัตโนมัติ</h3>
-            <ul className="mt-3 space-y-2 leading-relaxed">
-              {["เงินเข้าบัญชีร้านทันที ไม่ต้องรอรอบจ่ายเงิน", "ค่าบริการตรวจสลิปต่ำ ไม่มีค่าธรรมเนียมต่อรายการแบบบัตร", "เหมาะกับร้านค้า ร้านอาหาร จองคิว ยอดไม่สูงมาก", "ฝั่งเซิร์ฟเวอร์คิดยอดเอง เทียบกับสลิป และห้ามใช้สลิปซ้ำ"].map((t) => (
-                <li key={t} className="flex gap-2.5"><Check />{t}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 text-[15px] text-stone-700 shadow-sm">
-            <h3 className="text-base font-semibold text-stone-900">เมื่อไหร่ที่ยังควรใช้ Stripe หรือเกตเวย์บัตร</h3>
-            <ul className="mt-3 space-y-2 leading-relaxed">
-              {["ต้องตัดบัตรอัตโนมัติรายเดือน (subscription จริง)", "ลูกค้าต่างประเทศที่จ่ายด้วยบัตร", "ต้องการคืนเงิน/ระบบ dispute ครบวงจร", "แลกกับค่าธรรมเนียมและรอบโอนเงินเข้าบัญชีที่ช้ากว่า"].map((t) => (
-                <li key={t} className="flex gap-2.5"><span aria-hidden="true" className="mt-[0.75em] h-1 w-1 shrink-0 rounded-full bg-stone-400" />{t}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
       </Section>
 
       <Section id="about" eyebrow="เกี่ยวกับ" title="เกี่ยวกับผม" intro={profile.about}>

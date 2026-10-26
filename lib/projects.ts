@@ -31,7 +31,7 @@ export const projects: Project[] = [
     description: "โปรเจกต์ระบบจัดการโปรเจกต์แบบเรียลไทม์ที่เผยแพร่เป็น source code สาธารณะ",
     url: "https://github.com/nantapong-srichan/Real-Time-Project-Management-System",
     language: "HTML",
-    stack: ["Public Repository", "Source Code"],
+    stack: ["HTML"],
     accent: "#7c3aed",
   },
 ];
