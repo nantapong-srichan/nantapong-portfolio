@@ -1,7 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
-import { demos } from "@/lib/demos";
 import { profile } from "@/lib/profile";
+import { projects } from "@/lib/projects";
 
 const Section = ({
   id,
@@ -55,8 +53,6 @@ const navLinks = [
   ["#contact", "ติดต่อ"],
 ];
 
-const MAX_CHIPS = 4;
-
 const btnPrimary =
   "inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-stone-900 px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-stone-700";
 const btnSecondary =
@@ -100,83 +96,47 @@ export default function Home() {
 
       <Section
         id="work"
-        eyebrow="เดโม 7 ธุรกิจ"
-        title="ตัวอย่างงานสำหรับธุรกิจขนาดเล็ก"
-        intro="เดโมที่ใช้งานได้จริงบน API และฐานข้อมูล SQLite (การชำระเงินและอีเมลยังเป็นการจำลอง กรุณากรอกข้อมูลสมมติเท่านั้น) แต่ละงานระบุ Tech Stack ของเดโมนี้ และ Tech Stack ที่ผมจะใช้ในงานจริง"
+        eyebrow="ผลงานที่ตรวจสอบได้"
+        title="โปรเจกต์จาก GitHub"
+        intro="รายการนี้คัดเฉพาะ repository สาธารณะที่เปิดดู source code ได้จริง กดที่การ์ดเพื่อดูรายละเอียด โค้ด และประวัติการพัฒนาบน GitHub"
       >
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {demos.map((d) => (
-            <Link
-              key={d.slug}
-              href={`/demos/${d.slug}`}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-stone-300 hover:shadow-md"
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <a
+              key={project.url}
+              href={project.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group relative flex min-h-[320px] flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-stone-300 hover:shadow-md"
             >
-              <div className="h-1.5 w-full" style={{ background: d.accent }} aria-hidden="true" />
-              <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-stone-100 bg-stone-100">
-                <Image
-                  src={`/images/home/${d.slug}.jpg`}
-                  alt={`ตัวอย่างหน้าจอ ${d.name}`}
-                  fill
-                  loading="lazy"
-                  sizes="(min-width: 1152px) 368px, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover object-top ring-1 ring-inset ring-black/5"
-                />
+              <div className="h-1.5 w-full" style={{ background: project.accent }} aria-hidden="true" />
+              <div className="flex items-center justify-between border-b border-stone-100 bg-stone-50 px-6 py-5">
+                <span className="rounded-full border border-stone-200 bg-white px-3 py-1 text-xs font-semibold text-stone-600">Public repository</span>
+                <span className="text-xs font-semibold" style={{ color: project.accent }}>{project.language}</span>
               </div>
               <div className="flex flex-1 flex-col p-6">
-                <span className="text-xs font-semibold text-stone-500">{d.industry}</span>
-                <h3 className="mt-1 text-xl font-bold tracking-tight">{d.name}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-stone-600">{d.tagline}</p>
-                <ul className="mt-4 space-y-1.5 text-sm text-stone-700">
-                  {d.features.map((f) => (
-                    <li key={f} className="flex gap-2.5">
-                      <span aria-hidden="true" className="mt-[0.7em] h-1 w-1 shrink-0 rounded-full" style={{ background: d.accent }} />
-                      {f}
-                    </li>
+                <h3 className="text-xl font-bold tracking-tight">{project.name}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-stone-600">{project.description}</p>
+                <ul className="mt-5 flex flex-wrap gap-1.5">
+                  {project.stack.map((item) => (
+                    <li key={item} className="rounded-md bg-stone-100 px-2 py-1 text-xs text-stone-700">{item}</li>
                   ))}
                 </ul>
-                {d.payment && (
-                  <p className="mt-5 rounded-lg border border-emerald-100 bg-emerald-50 px-3 py-2.5 text-[13px] leading-relaxed text-emerald-950">
-                    <span className="font-semibold">การชำระเงิน: </span>{d.payment.summary}
-                  </p>
-                )}
-                <div className="mt-5 space-y-4 border-t border-stone-100 pt-4">
-                  <div>
-                    <p className="text-xs font-semibold text-stone-600">Tech Stack (เดโมนี้)</p>
-                    <ul className="mt-2 flex flex-wrap gap-1.5">
-                      {d.stack.slice(0, MAX_CHIPS).map((s) => (
-                        <li key={s} className="rounded-md bg-stone-100 px-2 py-0.5 text-xs text-stone-700">{s}</li>
-                      ))}
-                      {d.stack.length > MAX_CHIPS && (
-                        <li className="rounded-md bg-stone-100 px-2 py-0.5 text-xs text-stone-700" aria-label={`และอีก ${d.stack.length - MAX_CHIPS} รายการ`}>+{d.stack.length - MAX_CHIPS}</li>
-                      )}
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-stone-600">Tech Stack (งานจริง)</p>
-                    <ul className="mt-2 flex flex-wrap gap-1.5">
-                      {d.productionStack.slice(0, MAX_CHIPS).map((s) => (
-                        <li key={s} className="rounded-md border border-stone-200 px-2 py-0.5 text-xs text-stone-600">{s}</li>
-                      ))}
-                      {d.productionStack.length > MAX_CHIPS && (
-                        <li className="rounded-md border border-stone-200 px-2 py-0.5 text-xs text-stone-600" aria-label={`และอีก ${d.productionStack.length - MAX_CHIPS} รายการ`}>+{d.productionStack.length - MAX_CHIPS}</li>
-                      )}
-                    </ul>
-                  </div>
-                </div>
-                <span className="mt-auto inline-flex min-h-11 items-center gap-1.5 pt-5 text-sm font-semibold" style={{ color: d.accent }}>
-                  เปิดเดโม <Arrow />
+                <span className="mt-auto inline-flex min-h-11 items-center gap-1.5 pt-6 text-sm font-semibold" style={{ color: project.accent }}>
+                  ดู repository บน GitHub <Arrow />
                 </span>
               </div>
-            </Link>
+            </a>
           ))}
         </div>
+        <p className="mt-6 text-sm text-stone-500">ดู repository ทั้งหมดได้ที่ <a href={profile.github} target="_blank" rel="noreferrer" className="font-semibold text-stone-800 underline underline-offset-4">GitHub profile</a></p>
       </Section>
 
       <Section
         id="payments"
-        eyebrow="ระบบชำระเงิน"
+        eyebrow="ความถนัดด้านระบบ"
         title="ระบบชำระเงินทำงานอย่างไร"
-        intro="เว็บ SME ส่วนใหญ่ไม่จำเป็นต้องรอเงินจากตัวกลาง ผมออกแบบให้ลูกค้าโอนเข้าบัญชีร้านโดยตรงผ่านพร้อมเพย์ (บริษัทหรือบุคคลก็ได้) แล้วระบบยืนยันให้เอง ด้วย QR ตรวจรับเงินอัตโนมัติหรือตรวจสลิปผ่าน Thunder API เงินเข้าบัญชีร้านทันที ไม่ต้องรอรอบจ่ายเงินของผู้ให้บริการ"
+        intro="ส่วนนี้เป็นแนวทางทางเทคนิคที่ผมถนัดและตัวอย่าง sandbox ภายในโปรเจกต์นี้ ไม่ใช่การอ้างว่าเป็นระบบที่ใช้งานอยู่กับลูกค้าจริง"
       >
         <div className="grid gap-5 lg:grid-cols-2">
           <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">

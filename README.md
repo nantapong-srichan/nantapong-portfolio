@@ -1,6 +1,6 @@
 # Nantapong Srichan - Portfolio
 
-พอร์ตโฟลิโอนักพัฒนา Full-Stack (Next.js, TypeScript, Supabase) พร้อมเว็บตัวอย่างสำหรับ SME 7 เว็บ แต่ละเว็บแสดง Tech Stack ของเดโมและ Tech Stack ที่จะใช้ในงานจริง
+พอร์ตโฟลิโอนักพัฒนา Full-Stack (Next.js, TypeScript, Supabase) โดยหน้าแรกแสดงเฉพาะโปรเจกต์ที่ตรวจสอบได้จาก public repository บน GitHub ส่วนเว็บตัวอย่างด้านล่างเป็น sandbox สำหรับสาธิตความสามารถของโค้ดใน repository นี้
 
 ## เดโม
 
