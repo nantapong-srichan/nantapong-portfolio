@@ -16,9 +16,9 @@ export const profile = {
     "เว็บไซต์และระบบสั่งซื้อ/จองสำหรับธุรกิจขนาดเล็ก",
   ],
   skillGroups: [
-    { label: "Frontend", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
-    { label: "Backend", items: ["Node.js", "Spring Boot (Java)", "Go", "REST APIs"] },
-    { label: "Database", items: ["PostgreSQL", "MySQL", "MongoDB", "Supabase", "Firebase"] },
+    { label: "Frontend", items: ["Next.js", "React", "TypeScript", "Dart", "Flutter", "Tailwind CSS"] },
+    { label: "Backend", items: ["Node.js", "Spring Boot (Java)", "Go", "Kotlin", "Python", "REST APIs"] },
+    { label: "Database", items: ["PostgreSQL", "MySQL", "MongoDB", "Firebase"] },
     { label: "Tools", items: ["Git", "Linux", "Vercel", "Scrum"] },
   ],
   experience: [
