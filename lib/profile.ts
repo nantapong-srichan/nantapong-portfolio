@@ -3,7 +3,7 @@ export const profile = {
   name: "Nantapong Srichan",
   headline: "นักพัฒนาเว็บ Full-Stack",
   headlineStack: ["Next.js", "Node.js", "TypeScript", "SQL & NoSQL"],
-  tagline: "ผมสร้างและส่งมอบเว็บแอปที่ใช้งานจริง พร้อมระบบชำระเงินและการยืนยันตัวตน รับงานฟรีแลนซ์",
+  tagline: "นักศึกษาจบใหม่จากวิทยาลัยการคอมพิวเตอร์ มหาวิทยาลัยขอนแก่น สาขาวิทยาการคอมพิวเตอร์ สนใจพัฒนาเว็บแอปและซอฟต์แวร์ Full-Stack พร้อมเรียนรู้เทคโนโลยีใหม่ ๆ และสร้างระบบที่ใช้งานได้จริง",
   email: "nantapongsrichan@gmail.com",
   github: "https://github.com/nantapong-srichan",
   linkedin: "", // TODO: LinkedIn URL
